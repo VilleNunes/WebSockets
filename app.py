@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify,send_file
+from flask import Flask, request, jsonify,send_file, render_template
 from repository.database import db
 from db_models.payment import Payments
 from payments.pix import Pix
@@ -35,7 +35,7 @@ def create_payments():
         "payments": newPayments.to_dict()
     })
     
-@app.route("/payments/pix/<element>", methods=["GET"])
+@app.route("/payments/qr_code/pix/<element>", methods=["GET"])
 def get_pix(element):
     return send_file(f"static/image/{element}.png", mimetype="image/png")
 
@@ -45,7 +45,11 @@ def payments_confirmation():
 
 @app.route("/payments/pix/<int:id>",methods=["GET"])
 def payments_show(id):
-    return "pix"
+
+    payments = Payments.query.get(id)
+
+
+    return render_template("payment.html",value=payments.value,qr_code=payments.qr_code)
 
 if __name__ == "__main__":
     app.run(debug=True)
