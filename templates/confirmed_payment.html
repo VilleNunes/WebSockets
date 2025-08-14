@@ -19,12 +19,12 @@
     <main>
       <header>
         <div id="qr-code">
-          <img src="{{ url_for('static', filename='templates_img/qrcode.png' )}}" alt="QR Code" />
+          <img src="{{ url_for('static', filename='template_img/qrcode.png' )}}" alt="QR Code" />
 
 
           <img
             id="confirmed-icon"
-            src="{{ url_for('static', filename='templates_img/check.svg' )}}"
+            src="{{ url_for('static', filename='template_img/check.svg' )}}"
             alt="Ícone de pagamento confirmado"
           />
           
@@ -37,7 +37,7 @@
           </p>
 
           <div id="purchase-value">
-            <img src="{{ url_for('static', filename='templates_img/tag.svg' )}}" />
+            <img src="{{ url_for('static', filename='template_img/tag.svg' )}}" />
             <span>Compra de R$ <strong id="amount">{{ value }}</strong></span>
           </div>
         </aside>
@@ -45,7 +45,7 @@
 
       <footer>
         <div id="expiration-time">
-          <img src="{{ url_for('static', filename='templates_img/currency.svg' )}}" alt="Ícone moeda" />
+          <img src="{{ url_for('static', filename='template_img/currency.svg' )}}" alt="Ícone moeda" />
           <span>Recebemos a confirmação do pagamento do seu pedido via pix!</span>
         </div>
 
